@@ -1,0 +1,18 @@
+.delete-p {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.delete-radio {
+    margin-left: 20px;
+}
+
+.delete-input {
+    margin-top: 10px;
+    margin-left: 18px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+}

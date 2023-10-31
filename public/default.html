@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- Style for the sidebar, main & musicplayer div -->
+    <script src="main.js" type="module" defer></script>
+    <title>Ștefan Music App</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/musicPlayer.css">
+    <link rel="stylesheet" href="static/css/homepage.css">
+    <link rel="stylesheet" href="static/css/sidebar.css">
+
+    <!-- JS -->
+    <script type="module" src="static/js/playpause.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-btn-div">
+                <a href="" class="sidebar-btn-a" onclick="navigateTo('user')">
+                    <img src="static/ico/User.png" alt="" class="sidebar-btn-icon">
+                    <p class="sidebar-btn-text">User Songs</p>
+                </a>
+            </div>
+            <br>
+            <div class="sidebar-btn-div">
+                <a href="" class="sidebar-btn-a" onclick="navigateTo('add')">
+                    <img src="static/ico/plus.png" alt="" class="sidebar-btn-icon">
+                    <p class="sidebar-btn-text">Add a Song</p>
+                </a>
+            </div>
+            <br>
+            <div class="sidebar-btn-div">
+                <a href="" class="sidebar-btn-a" onclick="navigateTo('remove')">
+                    <img src="static/ico/trash.png" alt="" class="sidebar-btn-icon">
+                    <p class="sidebar-btn-text">Remove a Song</p>
+                </a>
+            </div>
+            <br>
+            <div class="sidebar-btn-div">
+                <a href="" class="sidebar-btn-a" onclick="navigateTo('settings')">
+                    <img src="static/ico/settings.png" alt="" class="sidebar-btn-icon">
+                    <p class="sidebar-btn-text">Settings</p>
+                </a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="content">
+                <!-- * here goes the content -->
+            </div>
+        </div>
+        <div class="musicPlayer">
+            <div class="song-displayer">
+
+            </div>
+            <div class="playerControls">
+                <div class="top">
+                    <div>
+                        <song-button id="" ico="previous.png"></song-button>
+                        <song-button id="play" ico="play.png"></song-button>
+                        <song-button id="" ico="next.png"></song-button>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div>
+                        <div id="slider">
+                            <input type="range" min="0" max="100" value="0" step="1" id="slider-input" data-seeking>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="volume">
+                <div>
+                    <img class="volumeIco" src="static/ico/volume.png" alt="">
+                    <input type="range" min="0" max="100" value="100" step="1" id="volume-input" data-seeking>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<audio src="" style="display: none;" id="audio"></audio>
+
+<script src="static/js/sidebar.js"></script>
+<script src="player.js" type="module" defer></script>
+
+</html>

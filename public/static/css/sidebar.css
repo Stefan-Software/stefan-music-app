@@ -1,0 +1,55 @@
+a {
+    text-decoration: none;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title:hover {
+    cursor: default;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-btn-a {
+    display: flex;
+}
+
+.sidebar-btn-div {
+    padding: 10px;
+    border-radius: 6px;
+    margin: -5px;
+}
+
+.sidebar-btn-icon {
+    filter: invert(30%);
+    width: 20px;
+    height: 20px;
+    transition: all 0.15s ease-in-out;
+}
+
+.sidebar-btn-text {
+    color: rgb(77, 77, 77);
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 2px;
+    margin-left: 10px;
+    transition: all 0.15s ease-in-out;
+}
+
+.sidebar-btn-text.active {
+    color: white;
+}
+
+.sidebar-btn-icon.active {
+    filter: invert();
+}

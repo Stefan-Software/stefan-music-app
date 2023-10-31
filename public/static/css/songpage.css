@@ -1,0 +1,54 @@
+.main {
+    width: auto;
+}
+
+.song-display-properties {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.song-display-properties-reset {
+    width: inherit;
+}
+
+.counter,
+.song {
+    font-size: 1.1rem;
+}
+
+.counter {
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.song {
+    color: gray;
+    display: flex;
+    margin-top: 10px;
+    min-height: 4rem;
+    border-radius: 7px;
+    width: 98%;
+    margin-left: 1%;
+}
+
+
+
+.song p {
+    transform: translateY(35%);
+}
+
+.song:hover {
+    color: white;
+    background-color: rgb(29, 29, 29);
+    cursor: pointer;
+}
+
+.song.active {
+    color: white;
+    background-color: rgb(42, 42, 42);
+}
+
+.song.active:hover {
+    cursor: pointer;
+}

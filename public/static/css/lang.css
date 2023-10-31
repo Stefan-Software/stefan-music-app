@@ -1,0 +1,10 @@
+.langPage-div-properties {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    margin-top: 10vw;
+}
+
+.changeLang-p {
+    margin-bottom: 7px;
+}

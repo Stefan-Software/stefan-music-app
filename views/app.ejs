@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ștefan Music App</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- Style for the sidebar, main & musicplayer div -->
+    <link rel="stylesheet" href="static/css/add.css">
+    <link rel="stylesheet" href="static/css/homepage.css">
+    <link rel="stylesheet" href="static/css/musicPlayer.css">
+    <link rel="stylesheet" href="static/css/sidebar.css">
+    <link rel="stylesheet" href="static/css/songpage.css">
+    <link rel="stylesheet" href="static/css/deletepage.css">
+    <link rel="stylesheet" href="static/css/lang.css">
+
+    <!-- JS -->
+    <script src="static/js/main.js" type="module" defer></script>
+
+</head>
+
+<body style="background-color: black;">
+    <div class="container" style="display: none;" id="container">
+        <div class="sidebar">
+            <div style="margin-top: 10px;">
+                <p class="title"><span style="font-weight: 500;">Ștefan</span>.MusicPlayer</p>
+                <div class="sidebar-btn-div">
+                    <a href="" class="sidebar-btn-a" onclick="navigateTo('home')">
+                        <img src="static/ico/home.png" alt="" class="sidebar-btn-icon" id="home-ico">
+                        <p class="sidebar-btn-text" id="home-text">Home</p>
+                    </a>
+                </div>
+                <br>
+                <div class="sidebar-btn-div">
+                    <a href="" class="sidebar-btn-a" onclick="navigateTo('user')">
+                        <img src="static/ico/User.png" alt="" class="sidebar-btn-icon" id="usr-ico">
+                        <p class="sidebar-btn-text" id="usr-text">User Songs</p>
+                    </a>
+                </div>
+                <br>
+                <div class="sidebar-btn-div">
+                    <a href="" class="sidebar-btn-a" onclick="navigateTo('add')">
+                        <img src="static/ico/plus.png" alt="" class="sidebar-btn-icon" id="add-ico">
+                        <p class="sidebar-btn-text" id="add-text">Add a Song</p>
+                    </a>
+                </div>
+                <br>
+                <div class="sidebar-btn-div">
+                    <a href="" class="sidebar-btn-a" onclick="navigateTo('remove')">
+                        <img src="static/ico/trash.png" alt="" class="sidebar-btn-icon" id="remove-ico">
+                        <p class="sidebar-btn-text" id="remove-text">Remove a Song</p>
+                    </a>
+                </div>
+                <br>
+                <div class="sidebar-btn-div">
+                    <a href="" class="sidebar-btn-a" onclick="navigateTo('lang')">
+                        <img src="static/ico/language.png" alt="" class="sidebar-btn-icon" id="lang-ico">
+                        <p class="sidebar-btn-text" id="lang-text">Change Language</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <!-- ~ here goes the content -->
+            <!-- !!! -->
+            <div id="homeScreen" style="display: <%=displayHomeScreen%>;">
+                <div class="flex">
+                    <img src="logo.png" class="logo">
+                    <div>
+                        <p class="title" style="margin-top: -25px;"><span
+                                style="font-weight: 500;">Ștefan</span>.MusicPlayer</p>
+                        <p style="margin-top: -25px; font-size: 9px;">The Best Music Player</p>
+                    </div>
+                </div>
+            </div>
+            <!-- !!! -->
+            <div id="userPage">
+                <div class="song-display-properties">
+                    <div class="song-display-properties-reset">
+                        <% songs.forEach(function(song, index) { %>
+                            <div class="song" onclick="playSong('<%= song %>')" id="<%= song %>">
+                                <p class="counter" id="<%= song %>-index">
+                                    <%= index + 1 %>
+                                </p>
+                                <p id="<%= song %>-name">
+                                    <%= song %>
+                                </p>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+            <!-- !!! -->
+            <!-- !!! -->
+            <div id="addSong" style="display: <%=displayAddScreen %>;">
+                <div class="content form-center">
+                    <div>
+                        <form action="/download" method="post" id="form">
+                            <p id="download-p-title">Download YouTube videos as MP3</p><br>
+                            <input type="text" name="videoURL" placeholder="Enter YouTube link" id="text-link">
+                            <button id="convert" class="button-dark">Add Song</button>
+                            <a class="download-link" href="<%=downloadLink%>" style="display: <%=showDownloadButton %>;"
+                                id="download-btn-mp3">Click to download</a>
+                        </form><br>
+                        <form action="/upload" method="post" id="upload" enctype="multipart/form-data">
+                            <p id="upload-p-title">Upload your music to the app (MP3 Only)</p>
+                            <input type="file" name="file">
+                            <div>
+                                <input type="submit" id="submit-song-upload" value="Upload Song">
+                            </div>
+                            <p class="uploadStatus" style="display: <%=uploadStatus%>" id="uploadStatus">
+                                Upload Success
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="removePage">
+                <div class="song-display-properties">
+                    <div class="song-display-properties-reset">
+                        <form action="/delete" name="deleteSongs" method="post">
+                            <div>
+                                <% songs.forEach(function(song, index) { %>
+                                    <p class="delete-p">
+                                        <%=song%>
+                                    </p>
+                                    <input type="checkbox" name="<%=song %>" class="delete-radio">
+                                    <% }) %>
+                            </div>
+                            <input type="submit" class="delete-input" id="delete-input-submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="langPage">
+                <div class="langPage-div-properties">
+                    <div>
+                        <p class="changeLang-p" id="changeLanguageP">Change Language</p>
+                        <form action="/lang" method="post">
+                            <select name="languageSelector" id="languageSelector">
+                                <option value="en">English</option>
+                                <option value="ro">Română</option>
+                                <option value="ja">日本語</option>
+                            </select>
+                            <input type="submit" name="change" id="changeLangSubmit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- !!! -->
+            <!-- ~ here goes the content -->
+        </div>
+        <div class="musicPlayer">
+            <div class="song-displayer">
+                <p id="currentSong">Current Song:</p>
+                <p id="currentArtist"></p>
+            </div>
+            <div class="playerControls">
+                <div class="top">
+                    <div>
+                        <song-button id="previousButton" ico="previous.png"></song-button>
+                        <song-button id="playButton" ico="pause.png"></song-button>
+                        <song-button id="nextButton" ico="next.png"></song-button>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div>
+                        <div id="slider">
+                            <input type="range" min="0" max="100" value="0" step="1" id="slider-input" data-seeking>
+                        </div>
+                        <p id="timer">0:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="volume">
+                <div>
+                    <img class="volumeIco" src="static/ico/volume.png" alt="">
+                    <input type="range" min="0" max="100" value="100" step="1" id="volume-input" data-seeking>
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<audio src="" style="display: none;" id="audio"></audio>
+
+<script src="static/js/translate.js"></script>
+<script src="static/js/sidebar.js" defer></script>
+<script src="static/js/player.js" defer></script>
+
+</html>

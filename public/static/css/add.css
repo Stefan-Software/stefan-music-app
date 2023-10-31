@@ -1,0 +1,75 @@
+#addSong {
+    background-color: hsl(0, 0%, 4.5%)
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.form-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+input[type="text"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.button-dark {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+a.download-link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+    width: 0 auto !important;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#upload input {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#upload p {
+    margin-bottom: 10px;
+}
+
+#upload div input {
+    margin-top: 10px;
+}
+
+.uploadStatus {
+    margin-top: 10px;
+}
